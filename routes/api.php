@@ -20,7 +20,7 @@ Route::get('/home/product',[ProductController::class,'home_product']);
 Route::get('/home/product/detail/{id}', [ProductController::class, 'home_product_detail']);
 Route::get('/category-brand',[Category_BrandController::class,'category_brand']);
 Route::post('/cart',[CartController::class,'cart_product']);
-
+Route::post('register',[UserController::class,'register']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/user/update/{id}', [UserController::class, 'update_user']);
