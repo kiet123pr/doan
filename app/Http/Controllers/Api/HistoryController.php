@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
 use App\Models\Blog;
 use App\Models\history;
 use App\Models\product;
@@ -18,7 +19,7 @@ class HistoryController extends Controller
             'data' => $data
         ]);
     }
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
         $login = [
             'email' => $request->email,

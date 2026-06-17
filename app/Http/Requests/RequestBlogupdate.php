@@ -25,7 +25,7 @@ class RequestBlogupdate extends FormRequest
         return [
             'content' => 'required',
             'title' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:10240'
         ];
     }
     public function messages()
