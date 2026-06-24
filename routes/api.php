@@ -31,6 +31,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user/product/delete/{id}', [ProductController::class, 'delete_product']);
     Route::post('/blog/detail/cmt/ajax', [BlogController::class, 'cmt']);
     Route::post('/blog/detail/rate/ajax', [BlogController::class, 'rate']);
+    Route::get('/history/user/{id}',[HistoryController::class, 'history_user']);
 });
 
 

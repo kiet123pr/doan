@@ -28,7 +28,7 @@ class HistoryController extends Controller
         ];
         $remember = false;
         if ($request->remember_me) {
-            $remember =  true;
+            $remember = true;
         }
         if (Auth::attempt($login, $remember)) {
             $user = Auth::user();
@@ -69,5 +69,20 @@ class HistoryController extends Controller
             ]);
         }
     }
-    
+    public function history_user(string $id)
+    {
+        $data = history::where('id_user', $id)->get();
+        if ($data->isNotEmpty()) {
+            return response()->json([
+                'success' => 'sucess',
+                'data' => $data
+            ]);
+        } else {
+            return response()->json([
+                'response' => 'error',
+                'error' => ['error', 'lỗi']
+            ]);
+        }
+    }
+
 }
