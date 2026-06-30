@@ -30,10 +30,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/user/product/{id}', [ProductController::class, 'post_edit_product']);
     Route::get('/user/product/delete/{id}', [ProductController::class, 'delete_product']);
     Route::post('/blog/detail/cmt/ajax', [BlogController::class, 'cmt']);
-    Route::post('/blog/detail/rate/ajax', [BlogController::class, 'rate']);
+    Route::post('/blog/detail/rate/{id}', [BlogController::class, 'rate']);
     Route::get('/history/user/{id}',[HistoryController::class, 'history_user']);
 });
-
 
 Route::get('/user', function (Request $request) {
     return $request->user();

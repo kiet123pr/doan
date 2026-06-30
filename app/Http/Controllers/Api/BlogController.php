@@ -64,11 +64,11 @@ class BlogController extends Controller
             ]);
         }
     }
-    public function rate(Request $request)
+    public function rate(Request $request, string $id)
     {
         $rate = $request->rate;
-        $id_blog = $request->id_blog;
-        $id_user = Auth::id();
+        $id_blog = $id;
+        $id_user = $request->id_user;
         $data = [
             'rate' => $rate,
             'id_blog' => $id_blog,
@@ -90,7 +90,7 @@ class BlogController extends Controller
     public function get_rate(string $id)
     {
         $data = Rate::where('id_blog', $id)->get();
-        if (empty($data)) {
+        if ($data->isNotEmpty()) {
             return response()->json([
                 'success' => 'success',
                 'data' => $data
